@@ -1,0 +1,53 @@
+*{
+margin: 0px 0px 0px 0px ;
+;
+}
+
+#imgmain {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3cm;
+    size: 2cm;
+    
+ }
+
+ header {
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+ }
+  
+ header h1 {
+    
+    color: aqua;
+     font-style: oblique;
+ }
+ 
+ body {
+   background-color:black  
+ }
+
+ nav {
+   bottom: 0;
+   position: fixed;
+    text-align: right;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+nav a {
+display: block;
+float: left;
+text-align: center;
+color: aqua;
+padding: 14px 16px;
+
+text-decoration: none;
+font-size: 2.5rem;
+}
+
+nav a:hover {
+background-color: aqua;
+color: black;
+}
