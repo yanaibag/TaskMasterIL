@@ -3,51 +3,72 @@ margin: 0px 0px 0px 0px ;
 ;
 }
 
-#imgmain {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3cm;
-    size: 2cm;
-    
- }
+@font-face {
+  font-family:karantinaL ;
+  src: url(../src/fonts/Karantina-Light.ttf);
+}
+
+@font-face {
+  font-family: karantinaB;
+  src: url(../src/fonts/Karantina-Bold.ttf);
+}
+
+@font-face {
+  font-family:suez ;
+  src: url(../src/fonts/SuezOne-Regular.ttf);
+}
+
 
  header {
-    color: black;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  text-align: center;
+  margin-top: 2rem;
+  background-image: linear-gradient(to bottom, #eebd89, #d13abd);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
  }
   
  header h1 {
-    
-    color: aqua;
-     font-style: oblique;
+  font-family: karantinaB;
+    font-size: 5rem ;
+    color: whitesmoke;
+   
+ }
+
+ #explain {
+font-family: suez ;
+letter-spacing: 1px;
+color: aliceblue;
+justify-content: flex-start;
+display: flex;
+flex-wrap: wrap;
+
  }
  
  body {
-   background-color:black  
+  background-color: black;
  }
 
  nav {
-   bottom: 0;
-   position: fixed;
-    text-align: right;
-    padding-top: 6px;
-    padding-bottom: 6px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: grey;
+  top: 0;
 }
 
 nav a {
+font-family: karantina;
 display: block;
-float: left;
 text-align: center;
-color: aqua;
-padding: 14px 16px;
-
+color: white;
 text-decoration: none;
-font-size: 2.5rem;
+font-size: 2rem;
 }
 
 nav a:hover {
-background-color: aqua;
-color: black;
+  background-image: linear-gradient(to bottom, #eebd89, #d13abd);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
