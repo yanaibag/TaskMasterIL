@@ -14,6 +14,11 @@ margin: 0px 0px 0px 0px ;
 }
 
 @font-face {
+  font-family: karantina;
+  src: url(../src/fonts/Karantina-Regular.ttf);
+}
+
+@font-face {
   font-family:suez ;
   src: url(../src/fonts/SuezOne-Regular.ttf);
 }
