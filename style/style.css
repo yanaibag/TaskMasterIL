@@ -32,22 +32,18 @@ margin: 0px 0px 0px 0px ;
   font-family: karantinaB;
   font-size: 5rem ;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   background-image: linear-gradient(to bottom, #eebd89, #d13abd);
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
  }
 
-header h2 {
-font-family: asakim;
-
-}
 
  #explain h2 {
 text-align: center;
 font-family: asakim ;
-font-size: 3rem;
+font-size: 2rem;
 color: aliceblue;
 text-underline-position: below;
  }
@@ -58,20 +54,34 @@ text-underline-position: below;
  }
 
  #point h3 {
+  padding-top: 1rem;
  text-align: center;
-font-size: 2.5rem;
+font-size: 2rem;
  }
  
 #point h4 {
+  display: flex;
+  justify-content: center;
   line-height: 2rem;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   
 }
 
 #point h2{
+  text-align: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
+}
+
+#clickhere {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+#bttn {
+background-color: transparent;
+border-image: linear-gradient(to bottom, #eebd89, #d13abd) 1;
 }
 
 #start{
@@ -80,14 +90,16 @@ font-size: 2.5rem;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.1px black;
-  padding-top: 1rem;
   font-family: karantinab;
   font-size: 2.5rem;
-  
 }
 
-footer p{
+#ftr {
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: center;
   color: aliceblue;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
  body {
   background-color: black;
