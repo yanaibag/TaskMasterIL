@@ -23,8 +23,14 @@ margin: 0px 0px 0px 0px ;
   src: url(../src/fonts/SuezOne-Regular.ttf);
 }
 
+@font-face {
+  font-family:asakim ;
+  src: url(../src/fonts/asakim_bold-webfont.ttf);
+}
 
- header {
+ header h1{
+  font-family: karantinaB;
+  font-size: 5rem ;
   text-align: center;
   margin-top: 2rem;
   background-image: linear-gradient(to bottom, #eebd89, #d13abd);
@@ -32,24 +38,57 @@ margin: 0px 0px 0px 0px ;
   background-clip: text;
   -webkit-text-fill-color: transparent;
  }
-  
- header h1 {
-  font-family: karantinaB;
-    font-size: 5rem ;
-    color: whitesmoke;
-   
+
+header h2 {
+font-family: asakim;
+
+}
+
+ #explain h2 {
+text-align: center;
+font-family: asakim ;
+font-size: 3rem;
+color: aliceblue;
+text-underline-position: below;
  }
 
- #explain {
-font-family: suez ;
-letter-spacing: 1px;
-color: aliceblue;
-justify-content: flex-start;
-display: flex;
-flex-wrap: wrap;
+ #point {
+  color: aliceblue;
+  font-family: asakim ;
+ }
 
+ #point h3 {
+ text-align: center;
+font-size: 2.5rem;
  }
  
+#point h4 {
+  line-height: 2rem;
+  font-size: 1.7rem;
+  
+}
+
+#point h2{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+#start{
+  background-image: linear-gradient(to bottom, #eebd89, #d13abd);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.1px black;
+  padding-top: 1rem;
+  font-family: karantinab;
+  font-size: 2.5rem;
+  
+}
+
+footer p{
+  color: aliceblue;
+}
  body {
   background-color: black;
  }
@@ -58,8 +97,7 @@ flex-wrap: wrap;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: grey;
-  top: 0;
+  background-color: rgba(128, 128, 128, 0.703);
 }
 
 nav a {
@@ -68,7 +106,7 @@ display: block;
 text-align: center;
 color: white;
 text-decoration: none;
-font-size: 2rem;
+font-size: 2.5rem;
 }
 
 nav a:hover {
@@ -76,4 +114,5 @@ nav a:hover {
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.1px black;
 }
