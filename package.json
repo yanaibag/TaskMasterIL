@@ -1,0 +1,25 @@
+{
+  "name": "taskmasteril",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev" : "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanaibag/TaskMasterIL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yanaibag/TaskMasterIL/issues"
+  },
+  "homepage": "https://github.com/yanaibag/TaskMasterIL#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

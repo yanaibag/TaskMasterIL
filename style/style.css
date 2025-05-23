@@ -3,33 +3,9 @@ margin: 0px 0px 0px 0px ;
 ;
 }
 
-@font-face {
-  font-family:karantinaL ;
-  src: url(../src/fonts/Karantina-Light.ttf);
-}
-
-@font-face {
-  font-family: karantinaB;
-  src: url(../src/fonts/Karantina-Bold.ttf);
-}
-
-@font-face {
-  font-family: karantina;
-  src: url(../src/fonts/Karantina-Regular.ttf);
-}
-
-@font-face {
-  font-family:suez ;
-  src: url(../src/fonts/SuezOne-Regular.ttf);
-}
-
-@font-face {
-  font-family:asakim ;
-  src: url(../src/fonts/asakim_bold-webfont.ttf);
-}
 
  header h1{
-  font-family: karantinaB;
+  font-family: karantina;
   font-size: 5rem ;
   text-align: center;
   margin-top: 1rem;
@@ -42,7 +18,7 @@ margin: 0px 0px 0px 0px ;
 
  #explain h2 {
 text-align: center;
-font-family: asakim ;
+font-family: noto sans hebrew;
 font-size: 2rem;
 color: aliceblue;
 text-underline-position: below;
@@ -50,7 +26,8 @@ text-underline-position: below;
 
  #point {
   color: aliceblue;
-  font-family: asakim ;
+  font-family: noto sans hebrew;
+
  }
 
  #point h3 {
@@ -90,7 +67,7 @@ border-image: linear-gradient(to bottom, #eebd89, #d13abd) 1;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.1px black;
-  font-family: karantinab;
+  font-family: karantina;
   font-size: 2.5rem;
 }
 
