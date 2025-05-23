@@ -28,6 +28,14 @@ app.post('/contact', (req, res) => {
     console.log(req.body);
 });
 
+app.get('/signup', (req,res) => {
+    res.sendFile(path.join(__dirname, 'public', 'signup.html'))
+});
+
+app.post('/signup', (req, res) => {
+    console.log(req.body);
+});
+
 app.listen(PORT, () => {
     console.log(`server running on port: ${PORT}`)
 });

@@ -15,6 +15,9 @@ margin: 0px 0px 0px 0px ;
   -webkit-text-fill-color: transparent;
  }
 
+ #bullet {
+  list-style: none;
+ }
 
  #explain h2 {
 text-align: center;
