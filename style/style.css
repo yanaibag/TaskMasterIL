@@ -8,7 +8,6 @@ margin: 0px 0px 0px 0px ;
   font-family: karantina;
   font-size: 5rem ;
   text-align: center;
-  margin-top: 1rem;
   background-image: linear-gradient(to bottom, #eebd89, #d13abd);
   background-size: 100%;
   background-clip: text;
@@ -17,11 +16,19 @@ margin: 0px 0px 0px 0px ;
 
  #bullet {
   list-style: none;
+  line-height: 1cm;
+ }
+
+ #calltoaction {
+  font-weight: 900;
+  font-style: italic;
  }
 
  #explain h2 {
 text-align: center;
+font-size: 900;
 font-family: noto sans hebrew;
+font-style: italic;
 font-size: 2rem;
 color: aliceblue;
 text-underline-position: below;
@@ -56,7 +63,7 @@ font-size: 2rem;
 
 #clickhere {
   text-align: center;
-  padding-top: 1rem;
+ 
 }
 
 #bttn {
@@ -75,7 +82,6 @@ border-image: linear-gradient(to bottom, #eebd89, #d13abd) 1;
 }
 
 #ftr {
-  padding-top: 1.5rem;
   display: flex;
   justify-content: center;
   color: aliceblue;
@@ -83,6 +89,25 @@ border-image: linear-gradient(to bottom, #eebd89, #d13abd) 1;
 }
  body {
   background-color: black;
+ }
+
+ #contactform {
+display: flex;
+justify-content: center;
+color: aliceblue;
+font-family: karantina;
+font-size: 0.7cm;
+ }
+
+
+
+ #kesher {
+  font-size: 2rem;
+  text-align: center;
+  color: aliceblue;
+  font-family: noto sans hebrew;
+  font-weight: 900;
+  font-style: italic;
  }
 
  nav {

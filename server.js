@@ -8,8 +8,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(path.join(__dirname, "style")));
 
-app.get('/', (req,res) =>{
+app.get('/home', (req,res) =>{
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
+});
+
+app.get('/about', (req,res) =>{
+    res.sendFile(path.join(__dirname, 'public', 'about.html'))
 });
 
 app.get('/login', (req,res) => {
