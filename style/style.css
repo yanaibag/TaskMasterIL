@@ -152,3 +152,76 @@ nav a:hover {
   -webkit-text-stroke: 0.1px black;
 }
 
+/* === עיצוב לדף הרשמה === */
+
+#signup-title h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    color: #ffc9ec;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #d13abd;
+    padding-bottom: 0.5rem;
+}
+
+#signup-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+#signup-form {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #d13abd;
+    max-width: 500px;
+    width: 100%;
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    color: aliceblue;
+}
+
+#signup-form label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+#signup-form input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    background-color: #222;
+    color: white;
+}
+
+#signup-form input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #d13abd;
+}
+
+#signup-button {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1.3rem;
+    font-family: karantina;
+    background-image: linear-gradient(to bottom, #eebd89, #d13abd);
+    color: black;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#signup-button:hover {
+    transform: scale(1.03);
+    background-image: linear-gradient(to top, #eebd89, #d13abd);
+}
