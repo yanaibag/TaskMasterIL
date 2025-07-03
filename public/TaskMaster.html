@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TaskMasterIL - מנהל משימות</title>
+    <link rel="stylesheet" href="taskmanager.css" />
+    
+</head>
+<body>
+    <a class="logout" href="/logout">התנתק</a>
+
+    <header>
+        <h1>TaskMasterIL</h1>
+    </header>
+
+    <section id="task-form">
+        <input type="text" id="taskInput" placeholder="הוסף משימה חדשה..." />
+        <select id="prioritySelect">
+            <option value="low">נמוכה</option>
+            <option value="medium">בינונית</option>
+            <option value="high">גבוהה</option>
+        </select>
+        <button id="addTaskBtn">הוסף משימה</button>
+    </section>
+
+    <section id="task-list">
+        <ul id="tasks"></ul>
+    </section>
+
+    <script>
+      const taskInput = document.getElementById("taskInput");
+      const prioritySelect = document.getElementById("prioritySelect");
+      const addTaskBtn = document.getElementById("addTaskBtn");
+      const tasksUl = document.getElementById("tasks");
+
+      async function loadTasks() {
+        const res = await fetch("/tasks");
+        const tasks = await res.json();
+        renderTasks(tasks);
+      }
+
+      function priorityText(priority) {
+    switch (priority) {
+        case 'low': return 'נמוכה';
+        case 'medium': return 'בינונית';
+        case 'high': return 'גבוהה';
+        default: return '';
+    }
+}
+
+
+function renderTasks(tasks) {
+  tasksUl.innerHTML = "";
+  tasks.forEach((task) => {
+    const li = document.createElement("li");
+    li.className = `task ${task.priority} ${task.done ? "done" : ""}`;
+    li.innerHTML = `
+      <input type="checkbox" ${task.done ? "checked" : ""} onchange="toggleDone(${task.id}, ${!task.done})" />
+      <span class="task-text">${task.text}</span>
+      <span class="priority">עדיפות ${priorityText(task.priority)}</span>
+      
+      <div class="btn-wrapper">
+        <button class="remove" onclick="deleteTask(${task.id})" title="מחק משימה"></button>
+        <span class="button-label">הסר משימה</span>
+      </div>
+      
+      <div class="btn-wrapper">
+        <button class="change-priority" onclick="changePriority(${task.id}, '${task.priority}')" title="שנה עדיפות"></button>
+        <span class="button-label">שנה עדיפות</span>
+      </div>
+    `;
+    tasksUl.appendChild(li);
+  });
+}
+
+      async function toggleDone(id, done) {
+        await fetch(`/tasks/update/${id}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ done })
+        });
+        loadTasks();
+      }
+
+      async function deleteTask(id) {
+        await fetch(`/tasks/delete/${id}`, { method: "POST" });
+        loadTasks();
+      }
+
+      async function changePriority(id, currentPriority) {
+        const priorities = ["low", "medium", "high"];
+        let currentIndex = priorities.indexOf(currentPriority);
+        let nextPriority = priorities[(currentIndex + 1) % priorities.length];
+        await fetch(`/tasks/update/${id}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ priority: nextPriority })
+        });
+        loadTasks();
+      }
+
+      addTaskBtn.addEventListener("click", async () => {
+        const text = taskInput.value.trim();
+        const priority = prioritySelect.value;
+        if (!text) return;
+        await fetch("/tasks/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text, priority })
+        });
+        taskInput.value = "";
+        loadTasks();
+      });
+
+      loadTasks();
+    </script>
+</body>
+</html>

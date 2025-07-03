@@ -10,6 +10,7 @@ const session = require('express-session');
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.json());
 
 app.use(session({
   secret: 'project123',
@@ -71,6 +72,79 @@ app.post('/TaskMaster', (req, res) => {
     console.log(req.body);
 });
 
+app.post('/tasks/add', (req, res) => {
+  if (!req.session.user) return res.status(401).send("לא מחובר");
+
+  const { text, priority } = req.body;
+  const userId = req.session.user.id;
+
+  db.run(
+    `INSERT INTO tasks (user_id, text, priority) VALUES (?, ?, ?)`,
+    [userId, text, priority],
+    function (err) {
+      if (err) {
+        console.error("שגיאה בהוספת משימה:", err);
+        return res.status(500).send("שגיאה");
+      }
+      res.sendStatus(200);
+    }
+  );
+});
+
+app.get('/tasks', (req, res) => {
+  if (!req.session.user) return res.status(401).send("לא מחובר");
+
+  const userId = req.session.user.id;
+
+  db.all(`SELECT * FROM tasks WHERE user_id = ?`, [userId], (err, rows) => {
+    if (err) {
+      console.error("שגיאה בשליפת משימות:", err);
+      return res.status(500).send("שגיאה");
+    }
+    res.json(rows);
+  });
+});
+
+app.post('/tasks/update/:id', (req, res) => {
+  if (!req.session.user) return res.status(401).send("לא מחובר");
+
+  const { done, priority } = req.body;
+  const userId = req.session.user.id;
+  const taskId = req.params.id;
+
+  db.run(
+    `UPDATE tasks 
+     SET done = COALESCE(?, done), 
+         priority = COALESCE(?, priority) 
+     WHERE id = ? AND user_id = ?`,
+    [done !== undefined ? (done ? 1 : 0) : null, priority, taskId, userId],
+    function (err) {
+      if (err) {
+        console.error("שגיאה בעדכון משימה:", err);
+        return res.status(500).send("שגיאה");
+      }
+      res.sendStatus(200);
+    }
+  );
+});
+
+app.post('/tasks/delete/:id', (req, res) => {
+  if (!req.session.user) return res.status(401).send("לא מחובר");
+
+  const taskId = req.params.id;
+  const userId = req.session.user.id;
+
+  db.run(`DELETE FROM tasks WHERE id = ? AND user_id = ?`, [taskId, userId], function(err) {
+    if (err) {
+      console.error("שגיאה במחיקת משימה:", err);
+      return res.status(500).send("שגיאה");
+    }
+    res.sendStatus(200);
+  });
+});
+
+
+
 app.get('/signup', (req,res) => {
     res.sendFile(path.join(__dirname, 'public', 'signup.html'))
 });
@@ -98,7 +172,7 @@ app.post("/signup", (req, res) => {
         if (err) {
           return res.send("שגיאה בהכנסת המשתמש");
         }
-        return res.redirect("/TaskMaster")
+        return res.redirect("/login")
       }
     );
   });
@@ -120,6 +194,12 @@ app.post("/login", (req, res) => {
     req.session.user = { id: row.id, username: row.username };
 
     return res.redirect("/TaskMaster");
+  });
+});
+
+app.get('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/');
   });
 });
 
